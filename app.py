@@ -40,10 +40,10 @@ st.write("First of all, welcome! This is the place where you can customize what 
 st.markdown("##")
 
 tracks_per_page = 6
-    test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
-    uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
+test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
+uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
 
-    tracks = []
+tracks = []
     for uri in uris:
         track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
         tracks.append(track)
@@ -60,7 +60,7 @@ tracks_per_page = 6
     if 'start_track_i' not in st.session_state:
         st.session_state['start_track_i'] = 0
     
-    with st.container():
+with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         if st.button("Recommend More Songs"):
             if st.session_state['start_track_i'] < len(tracks):
