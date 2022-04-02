@@ -74,7 +74,7 @@ uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
 
 tracks = []
 for uri in uris:
-track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
+    track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
 tracks.append(track)
 
 if 'previous_inputs' not in st.session_state:
