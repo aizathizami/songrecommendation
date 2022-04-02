@@ -34,6 +34,38 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
 
 st.sidebar.write("First of all, welcome! This is the place where you can customize what you want to listen to based on genre and several key audio features. Try playing around with different settings and listen to the songs recommended by our system!")
 st.markdown("##")
+
+    with st.container():
+        col1, col2,col3,col4 = st.columns((2,0.5,0.5,0.5))
+        with col3:
+            st.markdown("***Choose your genre:***")
+            genre = st.radio(
+                "",
+                genre_names, index=genre_names.index("Pop"))
+        with col1:
+            st.markdown("***Choose features to customize:***")
+            start_year, end_year = st.slider(
+                'Select the year range',
+                1990, 2019, (2015, 2019)
+            )
+            acousticness = st.slider(
+                'Acousticness',
+                0.0, 1.0, 0.5)
+            danceability = st.slider(
+                'Danceability',
+                0.0, 1.0, 0.5)
+            energy = st.slider(
+                'Energy',
+                0.0, 1.0, 0.5)
+            instrumentalness = st.slider(
+                'Instrumentalness',
+                0.0, 1.0, 0.0)
+            valence = st.slider(
+                'Valence',
+                0.0, 1.0, 0.45)
+            tempo = st.slider(
+                'Tempo',
+                0.0, 244.0, 118.0)
     
 def page():
     title = "Song Recommendation Engine"
