@@ -69,9 +69,9 @@ with st.container():
                 0.0, 244.0, 118.0)
 
 
-    tracks_per_page = 6
-    test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
-    uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
+tracks_per_page = 6
+test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
+uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
 
     tracks = []
     for uri in uris:
