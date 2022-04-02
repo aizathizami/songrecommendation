@@ -44,21 +44,21 @@ test_feat = [acousticness, danceability, energy, instrumentalness, valence, temp
 uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
 
 tracks = []
-    for uri in uris:
-        track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
-        tracks.append(track)
+for uri in uris:
+    track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
+    tracks.append(track)
 
-    if 'previous_inputs' not in st.session_state:
-        st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
+if 'previous_inputs' not in st.session_state:
+    st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
     
-    current_inputs = [genre, start_year, end_year] + test_feat
-    if current_inputs != st.session_state['previous_inputs']:
-        if 'start_track_i' in st.session_state:
-            st.session_state['start_track_i'] = 0
-        st.session_state['previous_inputs'] = current_inputs
-
-    if 'start_track_i' not in st.session_state:
+current_inputs = [genre, start_year, end_year] + test_feat
+if current_inputs != st.session_state['previous_inputs']:
+    if 'start_track_i' in st.session_state:
         st.session_state['start_track_i'] = 0
+    st.session_state['previous_inputs'] = current_inputs
+
+if 'start_track_i' not in st.session_state:
+    st.session_state['start_track_i'] = 0
     
 with st.container():
         col1, col2, col3 = st.columns([2,1,2])
